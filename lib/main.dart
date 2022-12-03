@@ -1,3 +1,6 @@
+import 'package:example/custom_bloc.dart';
+import 'package:example/presentation/homeview.dart';
+import 'package:example/routes/approutes.dart';
 import 'package:flutter/material.dart';
 
 
@@ -7,24 +10,19 @@ void main() async{
 }
 
 
-class Core extends StatelessWidget {
-  const Core({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Lava();
-  }
-}
 
 class Lava extends StatelessWidget {
-  const Lava({Key? key}) : super(key: key);
+  final AppRouter router;
+  const Lava({Key? key, required this.router}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
-      home: Scaffold(),
+      initialRoute: '/home',
+      onGenerateRoute: router.generateRoute,
+
     );
     
   }
