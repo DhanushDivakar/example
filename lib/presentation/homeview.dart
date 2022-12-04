@@ -10,7 +10,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-
+//hiii
 ThemeCubit themeCubit = BlocProvider.of<ThemeCubit>(context, listen: false);
 
     return Scaffold(

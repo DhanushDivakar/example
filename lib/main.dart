@@ -1,7 +1,9 @@
 import 'package:example/custom_bloc.dart';
+import 'package:example/domain/cubit/cubit/theme_cubit.dart';
 import 'package:example/presentation/homeview.dart';
 import 'package:example/routes/approutes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 
 void main() async{
@@ -17,9 +19,11 @@ class Lava extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeCubit themeCubit = BlocProvider.of<ThemeCubit>(context, listen: true);
+    bool isDark = themeCubit.isDark;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(),
+      theme: isDark ? ThemeData.dark() : ThemeData.light(),
       initialRoute: '/home',
       onGenerateRoute: router.generateRoute,
 
